@@ -1,4 +1,7 @@
-Flask==1.1.1
-pytest
-Werkzeug==0.16.1
-flask-restplus
+flask-restx
+Flask-Migrate
+pyjwt
+flask_testing
+Flask-Script
+flask-bcrypt
+flask-cors
