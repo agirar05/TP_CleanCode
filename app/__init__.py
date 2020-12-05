@@ -6,9 +6,9 @@ from .main.controller.id_controller import api as id_ns
 blueprint = Blueprint('api', __name__)
 
 api = Api(blueprint,
-          title='UFO API',
+          title='TP_CleanCode API',
           version='1.0',
-          description='a well designed Flask API ...'
+          description='Evaluated API'
           )
 
 api.add_namespace(id_ns, path='/cle')
