@@ -1,7 +1,7 @@
 from flask_restx import Api
 from flask import Blueprint
 
-from .main.controller.id_controller import api as id_ns
+from .main.controller.id_controller import api as client_ns
 
 blueprint = Blueprint('api', __name__)
 
@@ -11,4 +11,4 @@ api = Api(blueprint,
           description='Evaluated API'
           )
 
-api.add_namespace(id_ns, path='/cle')
+api.add_namespace(client_ns, path='/client')

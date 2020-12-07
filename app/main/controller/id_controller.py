@@ -6,7 +6,7 @@ api = IDDto.api
 
 from ..service.id_service import checkID
 
-@api.route('/verification/<id>')
+@api.route('/cle/verification/<id>')
 class VerifyID(Resource):
     @api.doc('Verify an id')
     def get(self, id):

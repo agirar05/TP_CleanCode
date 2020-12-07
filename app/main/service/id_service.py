@@ -1,19 +1,25 @@
 def checkID(id):
-    if(isIDValid(id)):
-        response_object = {
-            'status': 'success',
+    response_object = {
+            'status': None,
             'request': id,
-            'result': 1
+            'result': None,
         }
-    else:
-        response_object = {
-            'status': 'success',
-            'request': id,
-            'result': 0
-        }
-    return response_object, 201
+    try:
+        if(isIDValid(id)):
+            response_object["status"] = 'successfully finished'
+            response_object["result"] = 1
+        else:
+            response_object["status"] = 'successfully finished'
+            response_object["result"] = 0
+    except:
+        response_object["status"] = 'unsuccessfully finished - an error occured'
+        response_object["result"] = 0
+    return response_object
 
 def isIDValid(id):
+    if(type(id) != str):
+        return False
+
     if(len(id) != 10):
         return False
 
