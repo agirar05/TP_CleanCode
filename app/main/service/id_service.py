@@ -1,4 +1,4 @@
-"""id_service.py: Functions called by the route in "id_controller.py""""
+"""id_service.py: Functions called by the route in id_controller.py"""
 __author__      = "Girard Alexandre"
 
 # Call a function to verify the ID and generate a JSON feedback
