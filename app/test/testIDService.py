@@ -1,11 +1,12 @@
+"""testIDService.py: All the unit test for id_service functions."""
+__author__      = "Girard Alexandre"
+
 import unittest
 
 from app.test.base import BaseTestCase
+
 # Import all functions to be tested
-from app.main.service.id_service import isIDValid
-from app.main.service.id_service import checkID
-from app.main.service.id_service import isGoodAlphaChar
-from app.main.service.id_service import alphaCorrespondsToTotal
+from app.main.service.id_service import isIDValid, checkID, isGoodAlphaChar, alphaCorrespondsToTotal
 
 # Tests for function 'isIDValid'
 class TestIDValidator(BaseTestCase):

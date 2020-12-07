@@ -1,3 +1,6 @@
+"""base.py: The base test file executed between each of them."""
+__author__      = "Girard Alexandre"
+
 from flask_testing import TestCase
 from app.main import db
 from manage import app

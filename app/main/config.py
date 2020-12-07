@@ -1,3 +1,6 @@
+"""config.py: Differents config to run the app in dev, test or prod."""
+__author__      = "Girard Alexandre"
+
 import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))

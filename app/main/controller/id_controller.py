@@ -1,3 +1,6 @@
+"""id_controller.py: The endpoint of the api, call function when request are made"""
+__author__      = "Girard Alexandre"
+
 from flask import request
 from flask_restx import Resource
 
