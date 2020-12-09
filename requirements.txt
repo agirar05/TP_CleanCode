@@ -1,5 +1,4 @@
 flask-restx
-Flask-Migrate
 pyjwt
 flask_testing
 Flask-Script
