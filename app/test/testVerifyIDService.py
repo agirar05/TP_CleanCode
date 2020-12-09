@@ -1,4 +1,4 @@
-"""testIDService.py: All the unit test for id_service functions."""
+"""testVerifyIDService.py: All the unit test for verify_id_service functions."""
 __author__      = "Girard Alexandre"
 
 import unittest
@@ -6,7 +6,7 @@ import unittest
 from app.test.base import BaseTestCase
 
 # Import all functions to be tested
-from app.main.service.id_service import isIDValid, checkID, isGoodAlphaChar, alphaCorrespondsToTotal
+from app.main.service.verify_id_service import isIDValid, checkID, alphaCorrespondsToTotal
 
 # Tests for function 'isIDValid'
 class TestIDValidator(BaseTestCase):
@@ -69,15 +69,21 @@ class TestIDValidator(BaseTestCase):
 
 # Tests for function 'checkID'
 class TestIDChecker(BaseTestCase):
-    response = {
-            'status': 'successfully finished',
-            'request': None,
-            'result': None
-        }
+    good_response = {
+        'status': 'successfully finished',
+        'request': None,
+        'result': None
+    }
+    
+    bad_response = {
+        'status': 'successfully finished - but input not valid format (1 maj letter and 9 numbers expected)',
+        'request': None,
+        'result': None
+    }
     
     def test_good_id(self):
         """ Test for checking good id """
-        response = self.response
+        response = self.good_response
         good_id1 = "J123456789"
         good_id2 = "Z009999999"
         response["result"] = 1
@@ -88,7 +94,7 @@ class TestIDChecker(BaseTestCase):
     
     def test_bad_id(self):
         """ Test for checking bad id - numbers not corresponding to letter """
-        response = self.response
+        response = self.bad_response
         bad_id1 = "A123456789"
         bad_id2 = "Z029999999"
         response["result"] = 0
@@ -97,20 +103,6 @@ class TestIDChecker(BaseTestCase):
         response["request"] = bad_id2
         self.assertEqual(checkID(bad_id2), response)
 
-# Tests for function 'isGoodAlphaChar'
-class TestAlphaChecker(BaseTestCase):
-    def test_good_alpha_char(self):
-        """ Test for checking good alpha char """
-        goodAlphas = ["A", "B", "C", "D", "Z"]
-        for alpha in goodAlphas:
-            self.assertEqual(isGoodAlphaChar(alpha), True)
-    
-    def test_bad_alpha_char(self):
-        """ Test for checking bad alpha char """
-        badAlphas = ["a", "é", "/", "1", "aa", "AF", "", " ", "$", 1, None,
-                    { dict: 'bad'}, ["list"]]
-        for alpha in badAlphas:
-            self.assertEqual(isGoodAlphaChar(alpha), False)
 
 # Tests for function 'alphaCorrespondsToTotal'
 class TestAlphaCorrespondsTotal(BaseTestCase):

@@ -1,5 +1,7 @@
-"""id_service.py: Functions called by the route in id_controller.py"""
+"""verify_id_service.py: Functions called by the route (/client/cle/verification) in id_controller.py"""
 __author__      = "Girard Alexandre"
+
+import re # To use regular expressions
 
 # Call a function to verify the ID and generate a JSON feedback
 def checkID(id):
@@ -13,7 +15,7 @@ def checkID(id):
             response_object["status"] = 'successfully finished'
             response_object["result"] = 1
         else:
-            response_object["status"] = 'successfully finished'
+            response_object["status"] = 'successfully finished - but input not valid format (1 maj letter and 9 numbers expected)'
             response_object["result"] = 0
     except:
         response_object["status"] = 'unsuccessfully finished - an error occured'
@@ -23,17 +25,12 @@ def checkID(id):
 def isIDValid(id):
     if(type(id) != str):
         return False
-
-    if(len(id) != 10):
-        return False
-
-    if(not isGoodAlphaChar(id[0])):
+    
+    regex = re.compile('^([A-P]||Z)[0-9]{9}$')
+    if(not regex.match(id)):
         return False
 
     numbers = id[1:10]
-    if(not numbers.isnumeric()):
-        return False
-    
     if(int(numbers) < 10000000):
         total = -1
     else:
@@ -48,11 +45,6 @@ def isIDValid(id):
         return True
     else:
         return False
-
-def isGoodAlphaChar(char):
-    goodAlphas = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K",
-                    "L", "M", "N", "O", "P", "Z"]
-    return char in goodAlphas
 
 def alphaCorrespondsToTotal(alpha, total):
     switcher = {
