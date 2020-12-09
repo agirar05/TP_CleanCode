@@ -1,5 +1,5 @@
 """testCreateIDService.py: All the unit test for create_id_service functions."""
-__author__      = "Girard Alexandre"
+__author__ = "Girard Alexandre"
 
 import unittest
 
@@ -7,6 +7,7 @@ from app.test.base import BaseTestCase
 
 # Import all functions to be tested
 from app.main.service.create_id_service import createID, createCompleteID, inputIsValid, getLetterByTotal
+
 
 # Tests for function 'inputIsValid'
 class TestInputValidator(BaseTestCase):
@@ -16,7 +17,7 @@ class TestInputValidator(BaseTestCase):
         good_input2 = "009999999"
         self.assertEqual(inputIsValid(good_input1), True)
         self.assertEqual(inputIsValid(good_input2), True)
-    
+
     def test_inputs_bad_length(self):
         """ Test for checking bad length inputs """
         input_too_long = "1234567890"
@@ -25,7 +26,7 @@ class TestInputValidator(BaseTestCase):
         self.assertEqual(inputIsValid(input_too_long), False)
         self.assertEqual(inputIsValid(input_too_short), False)
         self.assertEqual(inputIsValid(input_empty), False)
-    
+
     def test_input_with_other_char_than_numbers(self):
         """ Test for checking input with bad chars """
         input_with_letter = "12A456789"
@@ -36,7 +37,7 @@ class TestInputValidator(BaseTestCase):
     def test_input_not_a_string(self):
         """ Test for checking input with bad var type """
         id_integer = 174589632
-        id_dictionary = { "id": "123456789" }
+        id_dictionary = {"id": "123456789"}
         id_list = ["123456789"]
         id_bool = True
         id_null = None
@@ -76,13 +77,13 @@ class TestIDCreator(BaseTestCase):
         'request': None,
         'result': None
     }
-    
+
     bad_response = {
         'status': 'successfully finished - but input not valid format (9 numbers expected)',
         'request': None,
         'result': None
     }
-    
+
     def test_good_input(self):
         """ Test for creating with good input """
         response = self.good_response
@@ -94,7 +95,7 @@ class TestIDCreator(BaseTestCase):
         response["request"] = good_input2
         response["result"] = "Z009999999"
         self.assertEqual(createID(good_input2), response)
-    
+
     def test_bad_input(self):
         """ Test for checking bad input - not good format """
         response = self.bad_response

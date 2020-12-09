@@ -1,7 +1,8 @@
 """verify_id_service.py: Functions called by the route (/client/cle/verification) in id_controller.py"""
-__author__      = "Girard Alexandre"
+__author__ = "Girard Alexandre"
 
 import re # To use regular expressions
+
 
 # Call a function to verify the ID and generate a JSON feedback
 def checkID(id):
@@ -22,10 +23,11 @@ def checkID(id):
         response_object["result"] = 0
     return response_object
 
+
 def isIDValid(id):
     if(type(id) != str):
         return False
-    
+
     regex = re.compile('^([A-P]||Z)[0-9]{9}$')
     if(not regex.match(id)):
         return False
@@ -40,11 +42,12 @@ def isIDValid(id):
             for number in numbers:
                 total += int(number)
             numbers = str(total)
-    
+
     if(alphaCorrespondsToTotal(id[0], total+1)):
         return True
     else:
         return False
+
 
 def alphaCorrespondsToTotal(alpha, total):
     switcher = {

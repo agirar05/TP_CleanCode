@@ -1,5 +1,5 @@
 """testConfig.py: Tests for the differents app config possible (test, dev, prod)"""
-__author__      = "Girard Alexandre"
+__author__ = "Girard Alexandre"
 
 import os
 import unittest

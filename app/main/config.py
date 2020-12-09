@@ -1,9 +1,10 @@
 """config.py: Differents config to run the app in dev, test or prod."""
-__author__      = "Girard Alexandre"
+__author__ = "Girard Alexandre"
 
 import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
+
 
 class Config:
     SECRET_KEY = os.getenv('SECRET_KEY', 'secret_key')
@@ -12,6 +13,7 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
+
 
 class TestingConfig(Config):
     DEBUG = True
@@ -24,9 +26,9 @@ class ProductionConfig(Config):
 
 
 config_by_name = dict(
-    dev = DevelopmentConfig,
-    test = TestingConfig,
-    prod = ProductionConfig
+    dev=DevelopmentConfig,
+    test=TestingConfig,
+    prod=ProductionConfig
 )
 
 key = Config.SECRET_KEY

@@ -1,5 +1,5 @@
 """app/__init__.py: Create api doc and add namespaces"""
-__author__      = "Girard Alexandre"
+__author__ = "Girard Alexandre"
 
 from flask_restx import Api
 from flask import Blueprint

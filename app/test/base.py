@@ -1,5 +1,5 @@
 """base.py: The base test file executed between each of them."""
-__author__      = "Girard Alexandre"
+__author__ = "Girard Alexandre"
 
 from flask_testing import TestCase
 from manage import app

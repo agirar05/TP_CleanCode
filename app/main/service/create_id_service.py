@@ -1,7 +1,8 @@
 """create_id_service.py: Functions called by the route (/client/cle/creation) in id_controller.py"""
-__author__      = "Girard Alexandre"
+__author__ = "Girard Alexandre"
 
-import re # To use regular expressions
+import re  # To use regular expressions
+
 
 # Call a function to create an ID and generate a JSON feedback
 def createID(id):
@@ -23,6 +24,7 @@ def createID(id):
         response_object["result"] = 'null'
     return response_object
 
+
 def inputIsValid(id_to_check):
     if(type(id_to_check) != str):
         return False
@@ -32,6 +34,7 @@ def inputIsValid(id_to_check):
         return True
     else:
         return False
+
 
 def createCompleteID(id):
     numbers = id
@@ -44,9 +47,10 @@ def createCompleteID(id):
             for number in numbers:
                 total += int(number)
             numbers = str(total)
-    
+
     letter = getLetterByTotal(total+1)
     return letter + id
+
 
 def getLetterByTotal(total):
     letter_by_total = {

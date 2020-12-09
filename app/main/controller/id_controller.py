@@ -1,5 +1,5 @@
 """id_controller.py: The endpoint of the api, call function when request are made"""
-__author__      = "Girard Alexandre"
+__author__ = "Girard Alexandre"
 
 from flask import request
 from flask_restx import Resource
@@ -9,6 +9,7 @@ api = IDDto.api
 
 from ..service.verify_id_service import checkID
 from ..service.create_id_service import createID
+
 
 @api.route('/cle/verification')
 @api.doc(params={'id': 'An ID to verify'}, location='query')
