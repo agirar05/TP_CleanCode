@@ -7,8 +7,8 @@ from flask_restx import Resource
 from ..util.idDto import IDDto
 api = IDDto.api
 
-from ..service.verify_id_service import checkID
-from ..service.create_id_service import createID
+from ..service.verify_id_service import check_id
+from ..service.create_id_service import create_id
 
 
 @api.route('/cle/verification')
@@ -17,7 +17,7 @@ class VerifyID(Resource):
     @api.doc('Verify an id')
     def get(self):
         """Verify an id"""
-        return checkID(request.args.get('id'))
+        return check_id(request.args.get('id'))
 
 
 @api.route('/cle/creation')
@@ -26,4 +26,4 @@ class CreateID(Resource):
     @api.doc('Create an id')
     def get(self):
         """Create an id"""
-        return createID(request.args.get('id'))
+        return create_id(request.args.get('id'))

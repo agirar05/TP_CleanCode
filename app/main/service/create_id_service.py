@@ -5,17 +5,17 @@ import re  # To use regular expressions
 
 
 # Call a function to create an ID and generate a JSON feedback
-def createID(id):
+def create_id(id):
     response_object = {
             'status': None,
             'request': id,
             'result': None,
         }
     try:
-        if(inputIsValid(id)):
-            completeID = createCompleteID(id)
+        if(input_is_valid(id)):
+            complete_id = create_complete_id(id)
             response_object["status"] = 'successfully finished'
-            response_object["result"] = completeID
+            response_object["result"] = complete_id
         else:
             response_object["status"] = 'successfully finished - but input not valid format (9 numbers expected)'
             response_object["result"] = 'null'
@@ -25,7 +25,7 @@ def createID(id):
     return response_object
 
 
-def inputIsValid(id_to_check):
+def input_is_valid(id_to_check):
     if(type(id_to_check) != str):
         return False
 
@@ -36,7 +36,7 @@ def inputIsValid(id_to_check):
         return False
 
 
-def createCompleteID(id):
+def create_complete_id(id):
     numbers = id
     if(int(numbers) < 10000000):
         total = -1
@@ -48,11 +48,11 @@ def createCompleteID(id):
                 total += int(number)
             numbers = str(total)
 
-    letter = getLetterByTotal(total+1)
+    letter = get_letter_by_total(total+1)
     return letter + id
 
 
-def getLetterByTotal(total):
+def get_letter_by_total(total):
     letter_by_total = {
         0: "Z",
         1: "A",

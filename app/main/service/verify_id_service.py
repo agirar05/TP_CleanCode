@@ -5,14 +5,14 @@ import re # To use regular expressions
 
 
 # Call a function to verify the ID and generate a JSON feedback
-def checkID(id):
+def check_id(id):
     response_object = {
             'status': None,
             'request': id,
             'result': None,
         }
     try:
-        if(isIDValid(id)):
+        if(is_id_valid(id)):
             response_object["status"] = 'successfully finished'
             response_object["result"] = 1
         else:
@@ -24,7 +24,7 @@ def checkID(id):
     return response_object
 
 
-def isIDValid(id):
+def is_id_valid(id):
     if(type(id) != str):
         return False
 
@@ -43,13 +43,13 @@ def isIDValid(id):
                 total += int(number)
             numbers = str(total)
 
-    if(alphaCorrespondsToTotal(id[0], total+1)):
+    if(alpha_corresponds_to_total(id[0], total+1)):
         return True
     else:
         return False
 
 
-def alphaCorrespondsToTotal(alpha, total):
+def alpha_corresponds_to_total(alpha, total):
     switcher = {
         0: "Z",
         1: "A",
